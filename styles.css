@@ -1,0 +1,17 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+body { margin: 0; background: #0f172a; color: #e2e8f0; }
+header { text-align: center; padding: 1.25rem 1rem; background: #111827; border-bottom: 1px solid #1f2937; }
+h1 { margin: 0 0 .25rem 0; font-size: 1.5rem; }
+main { text-align: center; max-width: 900px; margin: 0 auto; padding: 1rem; }
+.controls { text-align: center; display: flex; gap: .75rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+select, button { padding: .5rem .75rem; border-radius: .5rem; border: 1px solid #374151; background: #0b1220; color: #e2e8f0; }
+button:hover { filter: brightness(1.15); cursor: pointer; }
+.status { margin-left: .5rem; opacity: .8; }
+.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem; }
+.plot { aspect-ratio: 1 / 1; border: 1px dashed #374151; border-radius: .5rem; display: grid; place-items: center; user-select: none; background: #0b1220; transition: transform .08s ease; }
+.plot:hover { transform: scale(1.02); }
+.plot.selected { outline: 2px solid #60a5fa; }
+.plot .name { font-size: .75rem; opacity: .85; }
+.plot.planted { border-style: solid; }
+.crop { font-size: 1.2rem; }
+footer { padding: 1rem; opacity: .7; text-align: center; }

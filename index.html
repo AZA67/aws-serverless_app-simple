@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virtual Farm</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">                                              
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🌱 Virtual Farm</h1>
+    <br>
+    <p>Plant seeds, harvest crops. Serverless demo with S3 + CloudFront + API GW + Lambda + DynamoDB.</p>
+  </header>
+
+  <main>
+    <section class="controls" class="bac>
+      <label>
+        Crop
+        <select id="crop">
+          <option value="lettuce">Lettuce</option>
+          <option value="basil">Basil</option>
+          <option value="radish">Radish</option>
+          <option value="wheat">Wheat</option>
+        </select>
+      </label>
+      <button id="plant">Plant Selected Plot</button>
+      <button id="harvest">Harvest Selected Plot</button>
+      <span id="status" class="status"></span>
+    </section>
+
+    <section>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Demo only. Your data is saved per anonymous user id in DynamoDB.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
