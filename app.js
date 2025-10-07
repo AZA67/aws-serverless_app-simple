@@ -41,7 +41,7 @@ const harvestBtn = document.getElementById("harvest");
 let selectedPlot = 0; // default selection
 const PLOTS = Array.from({ length: 36 }, (_, i) => i);
 
-function renderGrid(state) {
+function renderGrid(state = {}) {
   gridEl.innerHTML = "";
   PLOTS.forEach((id) => {
     const plot = document.createElement("div");
@@ -107,6 +107,7 @@ async function refresh() {
     renderGrid(byId);
     statusEl.textContent = "";
   } catch (e) {
+    renderGrid();
     statusEl.textContent = e.message;
   }
 }
@@ -138,4 +139,5 @@ harvestBtn.addEventListener("click", async () => {
   }
 });
 
+renderGrid();
 refresh();
