@@ -84,7 +84,7 @@ function cropEmoji(crop) {
   switch (crop) {
     case "lettuce": return "🥬";
     case "basil": return "🌿";
-    case "radish": return "🌶️"; // close enough for demo
+    case "radish": return "🫜"; 
     case "wheat": return "🌾";
     default: return "🌱";
   }
