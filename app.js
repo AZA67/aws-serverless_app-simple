@@ -10,27 +10,30 @@ const API_BASE = "/api"; // CloudFront routes this path to API Gateway
 function getUserId() {
   let id = localStorage.getItem("vf_user_id");
   if (!id) {
+   if (crypto && typeof crypto.randomUUID === "function" {
     id = crypto.randomUUID();
+   } else {
+     id = "u-" + Date.now().tostring(36) + "-" + Math.random().toString(36).slice(2);
+   }
     localStorage.setItem("vf_user_id", id);
   }
-  return id;
+  return String(id);
 }
 
 const userId = getUserId();
 
 // Simple helper for fetch with headers
 async function api(path, opts = {}) {
-  const headers = Object.assign({}, opts.headers || {}, {
-    "x-user-id": userId,
-    "content-type": "application/json",
-  });
-  const res = await fetch(`${API_BASE}${path}`, { ...opts, headers });
-  if (!res.ok) {
-    const msg = await res.text();
-    throw new Error(msg || res.statusText);
+  const url = `${API_BASE}${path}`; //ensures leading slash in calls = api("/state")
+  const headers = new Headers(opts.headers || {})
+  headers.set("x-user-id", userId);
+  if (opts.method && opts.method !-- "GET") {
+    headers.set("content-type", "application/json");
   }
+  const res = await fetch(url, { ...opts, headers });
+  if (!res.ok) throw new Error(await res.text().catch(() => res.statusText));
   return res.json();
-}
+} 
 
 const gridEl = document.getElementById("grid");
 const statusEl = document.getElementById("status");
